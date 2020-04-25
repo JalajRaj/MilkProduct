@@ -1,7 +1,7 @@
 var map = {};
 var deliveryCharge=10;
 var disc=1;
-
+cardCount();
 function initMap(){
 	map[1]="Bell Pepper,120,100,30%,good for food";
 	map[2]="Mirchi,80,60,,Good for health";
@@ -13,9 +13,21 @@ function initMap(){
 	map[8]="jalaj,40,20,,ok jjjjjnice product";
 }
 
+function cardCount(){
+	var count= 0;
+	var iteams  = localStorage.getItem("card");
+	$.each(iteams.split(','),function(i,j){
+		if(j != "null" && j != ""){
+			count++;
+		}
+	});
+	$(".cardCount").html("["+count+"]");
+}
+
 function addtoCard(id){
 	localStorage.setItem("card",localStorage.getItem("card")+","+id);
-	alert(map[id].split(",")[0]+ " successfully added to cart.")
+	alert(map[id].split(",")[0]+ " successfully added to cart.");
+	cardCount();
 	return false;
 }
 
@@ -45,6 +57,7 @@ function removeProduct(j){
 	localStorage.setItem("card",iteams);
 	$("#sectiondetails"+j).remove();
 	mainTotal();
+	cardCount();
 	return false;
 }
 function initCart(){
@@ -67,7 +80,7 @@ function generateProduct(){
 	if(valuesDetails[3] != ""){
 		disc='<span class="status">'+valuesDetails[3] +'</span>'
 	}
-	var ourProducts = '<div class="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated"><div class="product"><a href="#" class="img-prod"><img class="img-fluid" src="images/product-'+key+'.jpg" alt="Colorlib Template">'+disc +'<div class="overlay"></div></a><div class="text py-3 pb-4 px-3 text-center"><h3><a href="#">'+valuesDetails[0]+'</a></h3><div class="d-flex"><div class="pricing"><p class="price"><span class="mr-2 price-dc">'+valuesDetails[1]+' Rs</span><span class="price-sale">'+valuesDetails[2]+' Rs</span></p></div></div><div class="bottom-area d-flex px-3"><div class="m-auto d-flex"><a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center"><span><i class="ion-ios-menu"></i></span></a><a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1"><span onClick="return addtoCard('+key+')"><i  class="ion-ios-cart"></i></span></a><a href="#" class="heart d-flex justify-content-center align-items-center "><span><i class="ion-ios-heart"></i></span></a></div></div></div></div></div>';
+	var ourProducts = '<div class="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated"><div class="product"><a href="#" class="img-prod"><img class="img-fluid" src="images/product-'+key+'.jpg" alt="Colorlib Template">'+disc +'<div class="overlay"></div></a><div class="text py-3 pb-4 px-3 text-center"><h3><a href="#">'+valuesDetails[0]+'</a></h3><div class="d-flex"><div class="pricing123"><p class="price"><span class="mr-2 price-dc">'+valuesDetails[1]+' Rs</span><span class="price-sale">'+valuesDetails[2]+' Rs</span><span class="price-sale">&nbsp;&nbsp;</span><input type="button" onClick="return addtoCard('+key+')" class="btn btn-primary" value="Add to Cart"></p></div></div></div></div></div>';
 	$("#productDetails").append(ourProducts);
 	});
 }
