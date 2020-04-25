@@ -3,14 +3,13 @@ var deliveryCharge=10;
 var disc=1;
 cardCount();
 function initMap(){
-	map[1]="Bell Pepper,120,100,30%,good for food";
-	map[2]="Mirchi,80,60,,Good for health";
-	map[3]="Apples,250,190,,Nice to eat";
-	map[4]="Banana,180,200,40%,make fatty";
-	map[5]="Cucumber,50,50,,bad for health";
-	map[6]="Trumeric,150,90,,nice product";
-	map[7]="Grapes,40,20,,ok nice product";
-	map[8]="jalaj,40,20,,ok jjjjjnice product";
+	map[1]="Amul Cow Milk,30,27,10%,Amul Milk";
+	map[2]="Amul Full Cream Milk,60,60,,Milk";
+	map[3]="Mali Panner,200,160,20%,Panner";
+	map[4]="Kesar Shrikhand,60,60,,Shrikhand";
+	map[5]="Amul Chees,50,50,,Cheesh";
+	map[6]="Amul Butter Milk,12,12,,Butter Milk";
+	
 }
 
 function cardCount(){
