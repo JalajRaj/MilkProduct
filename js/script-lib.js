@@ -9,6 +9,8 @@ function initMap(){
 	map[4]="Kesar Shrikhand,60,60,,Shrikhand";
 	map[5]="Amul Chees,50,50,,Cheesh";
 	map[6]="Amul Butter Milk,12,12,,Butter Milk";
+	map[7]="Dahi (Curd),12,12,,Curd";
+	map[8]="White Bread,12,12,,Bread";
 	
 }
 
